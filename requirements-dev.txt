@@ -1,6 +1,7 @@
 # Development and build dependencies.
 #
 # Versions are pinned to the set validated by CI and by build.ps1.
+# The application runs on Python 3.9+, but these tools need 3.10+ (pytest 9).
 -r requirements.txt
 
 # Test runner
