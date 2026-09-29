@@ -1,0 +1,10 @@
+# Runtime dependencies.
+#
+# pywin32 supplies WMI access (auth.py), logical-drive enumeration
+# (driveletter.py) and the Win32 storage IOCTLs used for ejecting (eject.py).
+# The environment marker keeps the pure-logic test suite installable on
+# non-Windows CI runners, where pywin32 has no wheels.
+#
+# Pinned so a deployment rebuilt from this file behaves exactly like the one that
+# passed CI. Update deliberately, and re-run the tests on Windows afterwards.
+pywin32==312; sys_platform == "win32"

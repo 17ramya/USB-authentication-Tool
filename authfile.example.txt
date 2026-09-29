@@ -1,0 +1,20 @@
+# Authorized USB devices - one fingerprint per line.
+#
+# This file is generated automatically the first time the tool runs and is
+# intentionally git-ignored: it describes the hardware authorized on one
+# specific machine. Blank lines and lines starting with '#' are ignored.
+#
+# Fingerprints are produced from the Windows PnP DeviceID (for example
+# USB\VID_0781&PID_5567\4C530001231031117553) using the scheme selected with
+# USBAUTH_HASH:
+#
+#   legacy (default) - the v1 Caesar-style obfuscation, e.g.
+#   WUD\XKF_nklj&RKF_gfff\BIkVjGkm
+#
+#   sha256 - USBAUTH_SALT ":" DeviceID hashed with SHA-256, prefixed with
+#   'sha256$', e.g.
+#   sha256$1f2c0db1a4f1e6c0e0e9b6f8d1b1b3f4c9a1f2b3c4d5e6f708192a3b4c5d6e7f
+#
+# Add entries by plugging the device in and approving the prompt, or run
+#   python main.py --list
+# to see the fingerprints of everything currently connected.

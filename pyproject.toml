@@ -1,0 +1,37 @@
+# Tooling configuration.
+#
+# The application itself is a flat set of modules started with `python main.py`,
+# so this file only configures the linters, the test runner and the interpreter
+# version the project supports.
+
+[project]
+name = "usb-authentication-tool"
+version = "2.0.0"
+description = "Windows USB device whitelisting and authentication tool"
+requires-python = ">=3.8"
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+# Mirrors requirements.txt; kept separate because this is not an installable
+# package (flat modules), only metadata for the tooling below.
+dependencies = { file = ["requirements.txt"] }
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+extend-exclude = [".venv", "build", "dist"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B"]
+# E501 (line too long) is covered by the configured line-length; long URLs in
+# docstrings are allowed to overflow.
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests patch private helpers, import after preparing sys.path and use long literals.
+"tests/*" = ["B011", "E402"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+addopts = "-ra"

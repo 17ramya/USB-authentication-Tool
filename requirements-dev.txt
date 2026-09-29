@@ -1,0 +1,13 @@
+# Development and build dependencies.
+#
+# Versions are pinned to the set validated by CI and by build.ps1.
+-r requirements.txt
+
+# Test runner
+pytest==9.1.1
+
+# Linter (CI runs `ruff check .`)
+ruff==0.16.9
+
+# Packaging into dist\USB-Authentication-Tool.exe
+pyinstaller==6.22.3
